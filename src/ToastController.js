@@ -4,14 +4,17 @@ import { Map } from 'immutable'
 import SuccessToast from './toasts/SuccessToast'
 import WarnToast from './toasts/WarnToast'
 import ErrorToast from './toasts/ErrorToast'
+import NotificationToast from './toasts/NotificationToast'
 
 export default class ToastController extends Component {
-  static propTypes = {
-    $$toast: PropTypes.instanceOf(Map).isRequired,
-    removeToast: PropTypes.func.isRequired
-  }
 
-  closeTimeoutId = -1
+  constructor () {
+    super()
+
+    this.closeTimeoutId = -1
+    this.closeToast = this.closeToast.bind(this)
+    this.setLifeSpan = this.setLifeSpan.bind(this)
+  }
 
   componentWillUnmount () {
     clearTimeout(this.closeTimeoutId)
@@ -21,12 +24,12 @@ export default class ToastController extends Component {
     this.setLifeSpan()
   }
 
-  closeToast = () => {
+  closeToast () {
     const $$toast = this.props.$$toast
     this.props.removeToast($$toast)
   }
 
-  setLifeSpan = () => {
+  setLifeSpan () {
     const $$toast = this.props.$$toast
     const toastLifeSpan = $$toast.get('toastLifeSpan')
     if (toastLifeSpan) {
@@ -50,8 +53,17 @@ export default class ToastController extends Component {
       case 'error':
         Toast = ErrorToast
         break
+      case 'notification':
+      default:
+        Toast = NotificationToast
+        break
     }
 
     return <Toast $$toast={$$toast} closeToast={this.closeToast} />
   }
+}
+
+ToastController.propTypes = {
+  $$toast: PropTypes.instanceOf(Map).isRequired,
+  removeToast: PropTypes.func.isRequired
 }

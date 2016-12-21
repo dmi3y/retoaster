@@ -3,18 +3,14 @@ import { Map } from 'immutable'
 import BaseToast from './BaseToast'
 
 export default function SuccessToast ({$$toast, closeToast}) {
-  const toastClassName = 'notification-toaster__toast notification-toaster__toast-success'
+  const toastClassName = 'notification-toaster__toast notification-toaster__toast-notification'
 
-  const header = <h4 className="notification-toaster__toast-success__header">
-    Success
+  const header = <h4 className='notification-toaster__toast-notification__header'>
+    Notification
   </h4>
 
-  const icon = <div className="notification-toaster__toast__icon notification-toaster__toast-success__icon">
-    <i className="fa fa-exclamation-triangle fa-3x" aria-hidden="true" />
-  </div>
-
   return <div className={toastClassName}>
-    {icon}
+    <div className='notification-toaster__toast__icon notification-toaster__toast-notification__icon'>☁</div>
     <BaseToast header={header} text={$$toast.get('text')} closeToast={closeToast} />
   </div>
 }

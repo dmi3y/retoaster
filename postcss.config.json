@@ -1,0 +1,8 @@
+{
+  "use": ["precss", "autoprefixer"],
+  "input": "src/styles/*.css",
+  "dir": "dist",
+  "autoprefixer": {
+    "browsers": "> 5%"
+  }
+}

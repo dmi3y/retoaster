@@ -3,16 +3,15 @@ import { List } from 'immutable'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import ToastController from './ToastController'
-import './notificationToaster.scss'
-import './notificationToasterAnimate.scss'
 
 export default class NotificationToaster extends Component {
-  static propTypes = {
-    $$toasts: PropTypes.instanceOf(List).isRequired,
-    removeToast: PropTypes.func.isRequired
+  constructor () {
+    super()
+
+    this.removeToast = this.removeToast.bind(this)
   }
 
-  removeToast = ($$toast) => {
+  removeToast ($$toast) {
     const toastIdToRemove = $$toast.get('toastId')
     this.props.removeToast(toastIdToRemove)
   }
@@ -27,13 +26,18 @@ export default class NotificationToaster extends Component {
       />
     })
     return <ReactCSSTransitionGroup
-      className="notification-toaster"
-      key="notification-toaster"
-      transitionName="notification-toaster__animate"
+      className='notification-toaster'
+      key='notification-toaster'
+      transitionName='notification-toaster__animate'
       transitionEnterTimeout={590}
       transitionLeaveTimeout={790}
     >
       {Toasts}
     </ReactCSSTransitionGroup>
   }
+}
+
+NotificationToaster.propTypes = {
+  $$toasts: PropTypes.instanceOf(List).isRequired,
+  removeToast: PropTypes.func.isRequired
 }
