@@ -1,28 +1,15 @@
 import React, { Component, PropTypes } from 'react'
-import { List } from 'immutable'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import ToastController from './ToastController'
 
 export default class NotificationToaster extends Component {
-  constructor () {
-    super()
-
-    this.removeToast = this.removeToast.bind(this)
-  }
-
-  removeToast ($$toast) {
-    const toastIdToRemove = $$toast.get('toastId')
-    this.props.removeToast(toastIdToRemove)
-  }
-
   render () {
-    const Toasts = this.props.$$toasts.map(($$toast) => {
-      const toastId = $$toast.get('toastId')
+    const Toasts = this.props.toasts.map((toast) => {
       return <ToastController
-        $$toast={$$toast}
-        removeToast={this.removeToast}
-        key={toastId}
+        toast={toast}
+        removeToast={this.props.removeToast}
+        key={toast.id}
       />
     })
     return <ReactCSSTransitionGroup
@@ -38,6 +25,6 @@ export default class NotificationToaster extends Component {
 }
 
 NotificationToaster.propTypes = {
-  $$toasts: PropTypes.instanceOf(List).isRequired,
+  toasts: PropTypes.array.isRequired,
   removeToast: PropTypes.func.isRequired
 }

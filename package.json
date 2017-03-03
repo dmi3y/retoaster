@@ -2,7 +2,7 @@
   "name": "notification-toaster",
   "version": "1.0.0",
   "description": "Toasting notification toasts with notification toaster.",
-  "main": "./dist/NotificationToaster.js",
+  "main": "./dist/index.js",
   "standard": {
     "ignore": [
       "/dist"
@@ -10,14 +10,13 @@
   },
   "scripts": {
     "lint": "standard",
-    "compile-script": "rollup -c rollup.config.js",
+    "compile-script": "./tasks/compile-script.sh",
     "compile-style": "postcss -c postcss.config.json",
     "compile": "time npm run compile-script & npm run compile-style & wait"
   },
-  "author": "",
+  "author": "Dmitrii Lapshukov <lapshukov@gmail.com>",
   "license": "ISC",
   "peerDependencies": {
-    "immutable": "^3.8.0",
     "react": "^15.4.0",
     "react-addons-css-transition-group": "^15.4.0"
   },
@@ -34,6 +33,7 @@
     "precss": "1.4.0",
     "rollup": "0.36.4",
     "rollup-plugin-babel": "2.6.1",
+    "rollup-plugin-postcss": "0.2.0",
     "standard": "8.6.0"
   }
 }
