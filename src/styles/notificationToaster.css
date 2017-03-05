@@ -1,4 +1,11 @@
-.notification-toaster {
+$color-success: #5cb85c;
+$color-note: #337ab7;
+$color-warn: #f0ad4e;
+$color-error: #d9534f;
+$color-base: #f3f3f3;
+$color-border: #cecece;
+
+.re-toaster {
   position: fixed;
   overflow: hidden;
   top:0;
@@ -6,63 +13,58 @@
   padding: 10px;
   z-index: 1000;
 
-  &__toast-close {
+  &__close {
     float: right;
-    color: #a7a3a3;
     cursor: pointer;
-    line-height: 0;
-    font-size: 20px;
-
-    &:hover {
-      color: #646464;
-    }
   }
   &__toast {
     margin: 5px;
-    background: #fbfbfb;
-    border: 1px solid #cecece;
+    border: 1px solid $color-border;
     border-radius: 5px;
     width: 400px;
     overflow: hidden;
+
+    &__base {
+      padding: 10px 15px;
+      margin-left: 75px;
+      background: $color-base;
+      min-height: 55px;
+    }
+    &__success {
+      background: $color-success;
+    }
+    &__notification {
+      background: $color-note;
+    }
+    &__warn {
+      background: $color-warn;
+    }
+    &__error {
+      background: $color-error;
+    }
   }
-  &__toast-base {
-    padding: 10px 5px 10px 72px;
-  }
-  &__toast__icon {
+  &__icon {
     float: left;
-    padding: 10px;
-    width: 62px;
     text-align: center;
-    font-size: 40px;
-    font-family: monospace;
-    line-height: 1;
+    width: 75px;
+    padding-top: 25px;
   }
-  &__toast-success {
-    &__header,
-    &__icon {
-      color: #5cb85c;
+  &__header {
+    text-transform: uppercase;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+
+    &__success {
+      color: $color-success;
     }
-  }
-  &__toast-notification {
-    &__header,
-    &__icon {
-      color: #337ab7;
+    &__notification {
+      color: $color-note;
     }
-  }
-  &__toast-warn {
-    &__header,
-    &__icon {
-      color: #f0ad4e;
+    &__warn {
+      color: $color-warn;
     }
-  }
-  &__toast-error {
-    &__header,
-    &__icon {
-      color: #d9534f;
-    }
-    &__icon {
-      font-size: 60px;
-      line-height: 0.7;
+    &__error {
+      color: $color-error;
     }
   }
 }

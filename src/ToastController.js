@@ -31,25 +31,23 @@ export default class ToastController extends Component {
   }
 
   render () {
-    const check = <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1"  width="24" height="24" viewBox="0 0 24 24">
-      <path fill="#000000" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
-    </svg>
-    const close = <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1"  width="24" height="24" viewBox="0 0 24 24">
-      <path fill="#000000" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
-    </svg>
-
     const toast = this.props.toast
-    const toastType = toast.type
-    const Icon = <div className={`notification-toaster__toast__icon notification-toaster__toast-${toastType}__icon`}>
-      {check}
-    </div>
-    const CloseToast = <span
-      className='notification-toaster__toast-close'
+    const CloseToast = toast.CloseIcon && <span
+      className={`re-toaster__close re-toaster__close__${toast.type}`}
       onClick={this.closeToast}
-    >{close}</span>
+    >{toast.CloseIcon}</span>
+    const Icon = toast.Icon && <div
+      className={`re-toaster__icon re-toaster__icon__${toast.type}`}>
+        {toast.Icon}
+    </div>
+    const Header = toast.header && <div
+      className={`re-toaster__header re-toaster__header__${toast.type}`}>
+        {toast.header}
+    </div>
 
     return <UniToast
-      toastType={toastType}
+      toastType={toast.type}
+      header={Header}
       icon={Icon}
       message={toast.message}
       closeToast={CloseToast}

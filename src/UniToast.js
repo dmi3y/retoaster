@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react'
 
 export default function WarnToast ({header, icon, message, toastType, closeToast}) {
-  return <div className={`notification-toaster__toast notification-toaster__toast-${toastType}`}>
+  return <div className={`re-toaster__toast re-toaster__toast__${toastType}`}>
     {icon}
-    <div className='notification-toaster__toast-base'>
+    <div className='re-toaster__toast__base'>
       {closeToast}
       {header}
       {message}

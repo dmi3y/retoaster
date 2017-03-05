@@ -1,7 +1,7 @@
 {
-  "name": "notification-toaster",
+  "name": "retoaster",
   "version": "1.0.0",
-  "description": "Toasting notification toasts with notification toaster.",
+  "description": "Toasting toasts with toaster.",
   "main": "./dist/index.js",
   "standard": {
     "ignore": [
@@ -27,7 +27,6 @@
     "babel-eslint": "7.1.1",
     "babel-preset-es2015-rollup": "3.0.0",
     "babel-preset-react": "6.16.0",
-    "babel-preset-stage-2": "6.18.0",
     "postcss": "5.2.6",
     "postcss-cli": "2.6.0",
     "precss": "1.4.0",
