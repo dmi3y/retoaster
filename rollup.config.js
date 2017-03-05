@@ -5,7 +5,7 @@ import autoprefixer from 'autoprefixer'
 
 export default {
   format: 'umd',
-  moduleName: 'NotificationToaster',
+  moduleName: 'ReToaster',
   plugins: [
     postcss({
       plugins: [

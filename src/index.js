@@ -1,5 +1,5 @@
-import NotificationToaster from './NotificationToaster'
-import './styles/notificationToaster.css'
-import './styles/notificationToasterAnimate.css'
+import ReToaster from './ReToaster'
+import './styles/reToaster.css'
+import './styles/reToasterAnimate.css'
 
-export default NotificationToaster
+export default ReToaster

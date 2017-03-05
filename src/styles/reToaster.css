@@ -24,22 +24,22 @@ $color-border: #cecece;
     width: 400px;
     overflow: hidden;
 
-    &__base {
+    &-base {
       padding: 10px 15px;
       margin-left: 75px;
       background: $color-base;
       min-height: 55px;
     }
-    &__success {
+    &-success {
       background: $color-success;
     }
-    &__notification {
+    &-notification {
       background: $color-note;
     }
-    &__warn {
+    &-warn {
       background: $color-warn;
     }
-    &__error {
+    &-error {
       background: $color-error;
     }
   }
@@ -54,16 +54,16 @@ $color-border: #cecece;
     font-size: 1.2em;
     margin-bottom: 15px;
 
-    &__success {
+    &-success {
       color: $color-success;
     }
-    &__notification {
+    &-notification {
       color: $color-note;
     }
-    &__warn {
+    &-warn {
       color: $color-warn;
     }
-    &__error {
+    &-error {
       color: $color-error;
     }
   }

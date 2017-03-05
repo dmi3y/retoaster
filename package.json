@@ -1,7 +1,7 @@
 {
   "name": "retoaster",
   "version": "1.0.0",
-  "description": "Toasting toasts with toaster.",
+  "description": "Toasting toasts with ReToaster.",
   "main": "./dist/index.js",
   "standard": {
     "ignore": [

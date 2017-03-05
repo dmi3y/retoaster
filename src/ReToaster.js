@@ -4,7 +4,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import ToastController from './ToastController'
 import metaToasts from './metaToasts'
 
-export default class NotificationToaster extends Component {
+export default class ReToaster extends Component {
   render () {
     const Toasts = this.props.toasts.map((toast) => {
       const metaToast = metaToasts[toast.type] || {}
@@ -27,7 +27,7 @@ export default class NotificationToaster extends Component {
   }
 }
 
-NotificationToaster.propTypes = {
+ReToaster.propTypes = {
   toasts: PropTypes.array.isRequired,
   removeToast: PropTypes.func.isRequired
 }

@@ -33,15 +33,15 @@ export default class ToastController extends Component {
   render () {
     const toast = this.props.toast
     const CloseToast = toast.CloseIcon && <span
-      className={`re-toaster__close re-toaster__close__${toast.type}`}
+      className={`re-toaster__close re-toaster__close-${toast.type}`}
       onClick={this.closeToast}
     >{toast.CloseIcon}</span>
     const Icon = toast.Icon && <div
-      className={`re-toaster__icon re-toaster__icon__${toast.type}`}>
+      className={`re-toaster__icon re-toaster__icon-${toast.type}`}>
         {toast.Icon}
     </div>
     const Header = toast.header && <div
-      className={`re-toaster__header re-toaster__header__${toast.type}`}>
+      className={`re-toaster__header re-toaster__header-${toast.type}`}>
         {toast.header}
     </div>
 
