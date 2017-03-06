@@ -4,7 +4,8 @@
   "description": "Retoaster simple example",
   "main": "index.js",
   "scripts": {
-    "compile": "webpack -d"
+    "compile": "webpack",
+    "develop": "webpack -d -w"
   },
   "author": "",
   "license": "ISC",

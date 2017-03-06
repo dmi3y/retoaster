@@ -12,7 +12,10 @@
     "lint": "standard",
     "compile-script": "./tasks/compile-script.sh",
     "compile-style": "postcss -c postcss.config.json",
-    "compile": "time npm run compile-script & npm run compile-style & wait"
+    "compile": "time npm run compile-script & npm run compile-style & wait",
+    "compile-dev": "time sh -c 'npm run compile-script && ./tasks/sync-docs-module.sh'",
+    "develop": "sane 'npm run compile-dev' ./src"
+
   },
   "author": "Dmitrii Lapshukov <lapshukov@gmail.com>",
   "license": "ISC",
@@ -33,6 +36,7 @@
     "rollup": "0.36.4",
     "rollup-plugin-babel": "2.6.1",
     "rollup-plugin-postcss": "0.2.0",
+    "sane": "1.6.0",
     "standard": "8.6.0"
   }
 }

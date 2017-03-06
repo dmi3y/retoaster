@@ -10,7 +10,8 @@ export default {
   success: {
     header: 'Success',
     Icon: Check,
-    CloseIcon: Close
+    CloseIcon: Close,
+    lifeSpan: 3000
   },
   notification: {
     header: 'Note',
