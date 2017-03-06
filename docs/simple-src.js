@@ -5,6 +5,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Retoaster from 'retoaster'
 
+import './index.css'
+
 const successToast = {
   id: 1,
   message: 'Here we go!',
@@ -47,7 +49,10 @@ export class SimpleExample extends React.Component {
   render () {
     return <div>
       <h1>Simple Example</h1>
-      <Retoaster toasts={this.state.toasts} removeToast={this.removeToast} />
+      <Retoaster
+        toasts={this.state.toasts}
+        removeToast={this.removeToast}
+      />
     </div>
   }
 }
