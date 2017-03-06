@@ -9,5 +9,7 @@ body {
 }
 
 h1 {
-
+  color: #108410;
+  font-family: monospace;
+  font-weight: 300;
 }

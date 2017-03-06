@@ -4,5 +4,4 @@
 
 React component to render flyout notifications or toasts.
 
-
-[simple example]: https://dmi3y.github.io/retoaster/simple.html
+[examples]: https://dmi3y.github.io/retoaster
