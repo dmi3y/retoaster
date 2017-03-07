@@ -63,7 +63,8 @@ removeToast () => (toast) => {
 ...
 ```
 
-The one possible example of working component with simple ReToaster usage represented by `docs/simple-src.js`.
+The one possible example of working component with simple ReToaster usage represented by [`docs/simple-src.js`][simple-src].
 
 
 [simple]: https://dmi3y.github.io/retoaster/simple.html
+[simple-src]: simple-src.js
