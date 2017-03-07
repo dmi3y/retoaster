@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
-import ToastController from './ToastController'
+import ReToast from './ReToast'
 import metaToasts from './metaToasts'
 
 export default class ReToaster extends Component {
@@ -9,7 +9,7 @@ export default class ReToaster extends Component {
     const Toasts = this.props.toasts.map((toast) => {
       const metaToast = metaToasts[toast.type] || {}
       const readyToast = Object.assign(toast, metaToast)
-      return <ToastController
+      return <ReToast
         toast={readyToast}
         removeToast={this.props.removeToast}
         key={toast.id}

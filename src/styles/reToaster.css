@@ -33,7 +33,7 @@ $color-border: #cecece;
     &-success {
       background: $color-success;
     }
-    &-notification {
+    &-note {
       background: $color-note;
     }
     &-warn {
@@ -57,7 +57,7 @@ $color-border: #cecece;
     &-success {
       color: $color-success;
     }
-    &-notification {
+    &-note {
       color: $color-note;
     }
     &-warn {

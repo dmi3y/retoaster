@@ -13,7 +13,7 @@ const successToast = {
 const noteToast = {
   id: 2,
   message: 'Here you do!',
-  type: 'notification'
+  type: 'note'
 }
 const warnToast = {
   id: 3,
@@ -75,8 +75,6 @@ export class SimpleExample extends React.Component {
       <Retoaster
         toasts={this.state.toasts}
         removeToast={this.removeToast}
-        meta
-        position
       />
       {hasNoToasts && <button onClick={this.proxyBatch}>Batch again</button>}
     </div>

@@ -13,7 +13,7 @@ export default {
     CloseIcon: Close,
     lifeSpan: 3000
   },
-  notification: {
+  note: {
     header: 'Note',
     Icon: Pencil,
     CloseIcon: Close

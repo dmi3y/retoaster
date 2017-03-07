@@ -11454,7 +11454,7 @@ module.exports = __webpack_require__(38);
     toastType: React.PropTypes.string.isRequired,
     header: React.PropTypes.any,
     icon: React.PropTypes.any,
-    message: React.PropTypes.node.isRequired,
+    message: React.PropTypes.any.isRequired,
     closeToast: React.PropTypes.any
   };
 
@@ -11553,13 +11553,13 @@ module.exports = __webpack_require__(38);
     return value;
   };
 
-  var ToastController = function (_Component) {
-    inherits(ToastController, _Component);
+  var ReToast = function (_Component) {
+    inherits(ReToast, _Component);
 
-    function ToastController() {
-      classCallCheck(this, ToastController);
+    function ReToast() {
+      classCallCheck(this, ReToast);
 
-      var _this = possibleConstructorReturn(this, (ToastController.__proto__ || Object.getPrototypeOf(ToastController)).call(this));
+      var _this = possibleConstructorReturn(this, (ReToast.__proto__ || Object.getPrototypeOf(ReToast)).call(this));
 
       _this.closeTimeoutId = -1;
       _this.closeToast = _this.closeToast.bind(_this);
@@ -11567,7 +11567,7 @@ module.exports = __webpack_require__(38);
       return _this;
     }
 
-    createClass(ToastController, [{
+    createClass(ReToast, [{
       key: 'componentWillUnmount',
       value: function componentWillUnmount() {
         clearTimeout(this.closeTimeoutId);
@@ -11613,10 +11613,10 @@ module.exports = __webpack_require__(38);
         });
       }
     }]);
-    return ToastController;
+    return ReToast;
   }(React.Component);
 
-  ToastController.propTypes = {
+  ReToast.propTypes = {
     toast: React.PropTypes.object.isRequired,
     removeToast: React.PropTypes.func.isRequired
   };
@@ -11634,7 +11634,7 @@ module.exports = __webpack_require__(38);
       CloseIcon: Close,
       lifeSpan: 3000
     },
-    notification: {
+    note: {
       header: 'Note',
       Icon: Pencil,
       CloseIcon: Close
@@ -11667,7 +11667,7 @@ module.exports = __webpack_require__(38);
         var Toasts = this.props.toasts.map(function (toast) {
           var metaToast = metaToasts[toast.type] || {};
           var readyToast = Object.assign(toast, metaToast);
-          return React__default.createElement(ToastController, {
+          return React__default.createElement(ReToast, {
             toast: readyToast,
             removeToast: _this2.props.removeToast,
             key: toast.id
@@ -11690,7 +11690,7 @@ module.exports = __webpack_require__(38);
     removeToast: React.PropTypes.func.isRequired
   };
 
-  __$styleInject(".re-toaster {\n  position: fixed;\n  overflow: hidden;\n  top:0;\n  right: 0;\n  padding: 10px;\n  z-index: 1000\n}\n.re-toaster__close {\n  float: right;\n  cursor: pointer\n}\n.re-toaster__toast {\n  margin: 5px;\n  border: 1px solid #cecece;\n  border-radius: 5px;\n  width: 400px;\n  overflow: hidden\n}\n.re-toaster__toast-base {\n  padding: 10px 15px;\n  margin-left: 75px;\n  background: #f3f3f3;\n  min-height: 55px\n}\n.re-toaster__toast-success {\n  background: #5cb85c\n}\n.re-toaster__toast-notification {\n  background: #337ab7\n}\n.re-toaster__toast-warn {\n  background: #f0ad4e\n}\n.re-toaster__toast-error {\n  background: #d9534f\n}\n.re-toaster__icon {\n  float: left;\n  text-align: center;\n  width: 75px;\n  padding-top: 25px\n}\n.re-toaster__header {\n  text-transform: uppercase;\n  font-size: 1.2em;\n  margin-bottom: 15px\n}\n.re-toaster__header-success {\n  color: #5cb85c\n}\n.re-toaster__header-notification {\n  color: #337ab7\n}\n.re-toaster__header-warn {\n  color: #f0ad4e\n}\n.re-toaster__header-error {\n  color: #d9534f\n}\n", undefined);
+  __$styleInject(".re-toaster {\n  position: fixed;\n  overflow: hidden;\n  top:0;\n  right: 0;\n  padding: 10px;\n  z-index: 1000\n}\n.re-toaster__close {\n  float: right;\n  cursor: pointer\n}\n.re-toaster__toast {\n  margin: 5px;\n  border: 1px solid #cecece;\n  border-radius: 5px;\n  width: 400px;\n  overflow: hidden\n}\n.re-toaster__toast-base {\n  padding: 10px 15px;\n  margin-left: 75px;\n  background: #f3f3f3;\n  min-height: 55px\n}\n.re-toaster__toast-success {\n  background: #5cb85c\n}\n.re-toaster__toast-note {\n  background: #337ab7\n}\n.re-toaster__toast-warn {\n  background: #f0ad4e\n}\n.re-toaster__toast-error {\n  background: #d9534f\n}\n.re-toaster__icon {\n  float: left;\n  text-align: center;\n  width: 75px;\n  padding-top: 25px\n}\n.re-toaster__header {\n  text-transform: uppercase;\n  font-size: 1.2em;\n  margin-bottom: 15px\n}\n.re-toaster__header-success {\n  color: #5cb85c\n}\n.re-toaster__header-note {\n  color: #337ab7\n}\n.re-toaster__header-warn {\n  color: #f0ad4e\n}\n.re-toaster__header-error {\n  color: #d9534f\n}\n", undefined);
 
   __$styleInject(".re-toaster {\n}\n\n.re-toaster__animate {\n  overflow: hidden;\n}\n\n.re-toaster__animate-enter {\n  -webkit-animation-duration: 600ms;\n          animation-duration: 600ms;\n  -webkit-animation-name: slideInFromTop;\n          animation-name: slideInFromTop;\n}\n\n.re-toaster__animate-leave {\n  -webkit-animation-duration: 800ms;\n          animation-duration: 800ms;\n  -webkit-animation-name: slideOutToRightAndShrink;\n          animation-name: slideOutToRightAndShrink;\n}\n\n@-webkit-keyframes slideInFromTop {\n  from {\n    -webkit-transform: translate(0, -5000px);\n            transform: translate(0, -5000px);\n  }\n\n  to {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n}\n\n@keyframes slideInFromTop {\n  from {\n    -webkit-transform: translate(0, -5000px);\n            transform: translate(0, -5000px);\n  }\n\n  to {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n  }\n}\n\n@-webkit-keyframes slideOutToRightAndShrink {\n  from {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n    max-height: 5000px;\n    opacity: 1;\n  }\n\n  to {\n    -webkit-transform: translate(500px, 0);\n            transform: translate(500px, 0);\n    max-height: 0;\n    opacity: 0;\n  }\n}\n\n@keyframes slideOutToRightAndShrink {\n  from {\n    -webkit-transform: translate(0, 0);\n            transform: translate(0, 0);\n    max-height: 5000px;\n    opacity: 1;\n  }\n\n  to {\n    -webkit-transform: translate(500px, 0);\n            transform: translate(500px, 0);\n    max-height: 0;\n    opacity: 0;\n  }\n}\n", undefined);
 
@@ -24141,7 +24141,7 @@ const successToast = {
 const noteToast = {
   id: 2,
   message: 'Here you do!',
-  type: 'notification'
+  type: 'note'
 };
 const warnToast = {
   id: 3,
@@ -24202,9 +24202,7 @@ class SimpleExample extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Compon
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_retoaster___default.a, {
         toasts: this.state.toasts,
-        removeToast: this.removeToast,
-        meta: true,
-        position: true
+        removeToast: this.removeToast
       }),
       hasNoToasts && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'button',

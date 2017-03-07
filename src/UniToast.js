@@ -14,6 +14,6 @@ UniToast.propTypes = {
   toastType: PropTypes.string.isRequired,
   header: PropTypes.any,
   icon: PropTypes.any,
-  message: PropTypes.node.isRequired,
+  message: PropTypes.any.isRequired,
   closeToast: PropTypes.any
 }

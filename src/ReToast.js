@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import UniToast from './UniToast'
 
-export default class ToastController extends Component {
+export default class ReToast extends Component {
   constructor () {
     super()
 
@@ -55,7 +55,7 @@ export default class ToastController extends Component {
   }
 }
 
-ToastController.propTypes = {
+ReToast.propTypes = {
   toast: PropTypes.object.isRequired,
   removeToast: PropTypes.func.isRequired
 }
