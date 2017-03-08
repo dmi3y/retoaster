@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 191);
+/******/ 	return __webpack_require__(__webpack_require__.s = 192);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -11587,20 +11587,20 @@ module.exports = __webpack_require__(38);
       key: 'setLifeSpan',
       value: function setLifeSpan() {
         var toast = this.props.toast;
-        if (toast.lifeSpan) {
-          this.closeTimeoutId = setTimeout(this.closeToast, toast.lifeSpan);
+        if (toast.timeout) {
+          this.closeTimeoutId = setTimeout(this.closeToast, toast.timeout);
         }
       }
     }, {
       key: 'render',
       value: function render() {
         var toast = this.props.toast;
-        var CloseToast = toast.CloseIcon && React__default.createElement('span', {
+        var CloseToast = toast.closeIcon && React__default.createElement('span', {
           className: 're-toaster__close re-toaster__close-' + toast.type,
           onClick: this.closeToast
-        }, toast.CloseIcon);
-        var Icon = toast.Icon && React__default.createElement('div', {
-          className: 're-toaster__icon re-toaster__icon-' + toast.type }, toast.Icon);
+        }, toast.closeIcon);
+        var Icon = toast.icon && React__default.createElement('div', {
+          className: 're-toaster__icon re-toaster__icon-' + toast.type }, toast.icon);
         var Header = toast.header && React__default.createElement('div', {
           className: 're-toaster__header re-toaster__header-' + toast.type }, toast.header);
 
@@ -11630,25 +11630,34 @@ module.exports = __webpack_require__(38);
   var metaToasts = {
     success: {
       header: 'Success',
-      Icon: Check,
-      CloseIcon: Close,
-      lifeSpan: 3000
+      icon: Check,
+      closeIcon: Close,
+      timeout: 3000
     },
     note: {
       header: 'Note',
-      Icon: Pencil,
-      CloseIcon: Close
+      icon: Pencil,
+      closeIcon: Close
     },
     warn: {
       header: 'Warning',
-      Icon: Warn,
-      CloseIcon: Close
+      icon: Warn,
+      closeIcon: Close
     },
     error: {
       header: 'Error',
-      Icon: Flash,
-      CloseIcon: Close
+      icon: Flash,
+      closeIcon: Close
     }
+  };
+
+  var supplement = function supplement(target, donor) {
+    for (var key in donor) {
+      if (donor.hasOwnProperty(key) && !target.hasOwnProperty(key)) {
+        target[key] = donor[key];
+      }
+    }
+    return target;
   };
 
   var ReToaster$1 = function (_Component) {
@@ -11666,7 +11675,7 @@ module.exports = __webpack_require__(38);
 
         var Toasts = this.props.toasts.map(function (toast) {
           var metaToast = metaToasts[toast.type] || {};
-          var readyToast = Object.assign(toast, metaToast);
+          var readyToast = supplement(toast, metaToast);
           return React__default.createElement(ReToast, {
             toast: readyToast,
             removeToast: _this2.props.removeToast,
@@ -24115,7 +24124,8 @@ module.exports = flattenChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 191 */
+/* 191 */,
+/* 192 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

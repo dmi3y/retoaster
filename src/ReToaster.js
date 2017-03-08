@@ -4,11 +4,20 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import ReToast from './ReToast'
 import metaToasts from './metaToasts'
 
+const supplement = (target, donor) => {
+  for (const key in donor) {
+    if (donor.hasOwnProperty(key) && !target.hasOwnProperty(key)) {
+      target[key] = donor[key]
+    }
+  }
+  return target
+}
+
 export default class ReToaster extends Component {
   render () {
     const Toasts = this.props.toasts.map((toast) => {
       const metaToast = metaToasts[toast.type] || {}
-      const readyToast = Object.assign(toast, metaToast)
+      const readyToast = supplement(toast, metaToast)
       return <ReToast
         toast={readyToast}
         removeToast={this.props.removeToast}

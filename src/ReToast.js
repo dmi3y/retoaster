@@ -25,20 +25,20 @@ export default class ReToast extends Component {
 
   setLifeSpan () {
     const toast = this.props.toast
-    if (toast.lifeSpan) {
-      this.closeTimeoutId = setTimeout(this.closeToast, toast.lifeSpan)
+    if (toast.timeout) {
+      this.closeTimeoutId = setTimeout(this.closeToast, toast.timeout)
     }
   }
 
   render () {
     const toast = this.props.toast
-    const CloseToast = toast.CloseIcon && <span
+    const CloseToast = toast.closeIcon && <span
       className={`re-toaster__close re-toaster__close-${toast.type}`}
       onClick={this.closeToast}
-    >{toast.CloseIcon}</span>
-    const Icon = toast.Icon && <div
+    >{toast.closeIcon}</span>
+    const Icon = toast.icon && <div
       className={`re-toaster__icon re-toaster__icon-${toast.type}`}>
-        {toast.Icon}
+        {toast.icon}
     </div>
     const Header = toast.header && <div
       className={`re-toaster__header re-toaster__header-${toast.type}`}>

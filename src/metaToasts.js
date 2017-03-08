@@ -9,23 +9,23 @@ import {
 export default {
   success: {
     header: 'Success',
-    Icon: Check,
-    CloseIcon: Close,
-    lifeSpan: 3000
+    icon: Check,
+    closeIcon: Close,
+    timeout: 3000
   },
   note: {
     header: 'Note',
-    Icon: Pencil,
-    CloseIcon: Close
+    icon: Pencil,
+    closeIcon: Close
   },
   warn: {
     header: 'Warning',
-    Icon: Warn,
-    CloseIcon: Close
+    icon: Warn,
+    closeIcon: Close
   },
   error: {
     header: 'Error',
-    Icon: Flash,
-    CloseIcon: Close
+    icon: Flash,
+    closeIcon: Close
   }
 }
