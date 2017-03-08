@@ -1,7 +1,10 @@
 var config = {
-  entry: './simple-src.js',
+  entry: {
+    simple: './simple-src.js',
+    lazy: './lazy-src.js'
+  },
   output: {
-    filename: './simple-dist.js'
+    filename: './[name]-dist.js'
   },
   module: {
     loaders: [
