@@ -4,7 +4,9 @@
 
 React component to render flyout notifications aka toasts.
 
-More details at [`docs`](docs)
+The peer dependencies are `react` and `react-addons-css-transition-group`.
+
+Demo can be seen [here][demo]. More details at [`docs`](docs).
 
 ## Changelog:
 
@@ -12,4 +14,6 @@ More details at [`docs`](docs)
 
 - Initial release
 
-Made with ☭ by Dmitrii Lapshukov
+Made with ☭ by Comrade dmi3y
+
+[demo]: https://dmi3y.github.io/retoaster
