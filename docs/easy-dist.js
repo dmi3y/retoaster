@@ -24210,7 +24210,7 @@ const errorToast = {
   closeIcon: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CustomCloseIcon, null)
 };
 
-class LazyExample extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+class EasyExample extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
   constructor() {
     super();
 
@@ -24254,7 +24254,7 @@ class LazyExample extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Componen
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'h1',
         null,
-        'Lazy Example'
+        'Easy Example'
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_retoaster___default.a, {
         toasts: this.state.toasts,
@@ -24268,10 +24268,10 @@ class LazyExample extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Componen
     );
   }
 }
-/* harmony export (immutable) */ __webpack_exports__["LazyExample"] = LazyExample;
+/* harmony export (immutable) */ __webpack_exports__["EasyExample"] = EasyExample;
 
 
-__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(LazyExample, null), document.getElementById('root'));
+__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(EasyExample, null), document.getElementById('root'));
 
 /***/ })
 /******/ ]);

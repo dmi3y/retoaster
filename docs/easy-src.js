@@ -65,7 +65,7 @@ const errorToast = {
   closeIcon: <CustomCloseIcon />
 }
 
-export class LazyExample extends React.Component {
+export class EasyExample extends React.Component {
   constructor () {
     super()
 
@@ -110,7 +110,7 @@ export class LazyExample extends React.Component {
   render () {
     const hasNoToasts = this.state.toasts && !this.state.toasts.length
     return <div>
-      <h1>Lazy Example</h1>
+      <h1>Easy Example</h1>
       <Retoaster
         toasts={this.state.toasts}
         removeToast={this.removeToast}
@@ -120,4 +120,4 @@ export class LazyExample extends React.Component {
   }
 }
 
-ReactDOM.render(<LazyExample />, document.getElementById('root'))
+ReactDOM.render(<EasyExample />, document.getElementById('root'))

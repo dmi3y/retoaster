@@ -65,7 +65,7 @@ removeToast () => (toast) => {
 
 The one possible example of working component with simple ReToaster usage represented by [`docs/simple-src.js`][simple-src].
 
-## Lazy
+## Easy
 
 One way to customize appearance of the toasts is to override default properties individually.  Such properties as `header`, `icon`, `closeIcon` and `timeout` can be used to override default behavior for only this toast. In such case toasts array may look something like this:
 
@@ -82,7 +82,7 @@ One way to customize appearance of the toasts is to override default properties 
         message: "Had a very shiny nose",
         type: "note",
         timeout: 5000, // this note toast will close itself after 5s,
-        closeIcon: false // and no user forced close button
+        closeIcon: false // and no user close button
     },
     {
         id: 3,
@@ -98,12 +98,12 @@ One way to customize appearance of the toasts is to override default properties 
     }
 ]
 ```
-There is [working][lazy] demo and it's [component][lazy-src] example implementing this idea.
+There is [working][easy] demo and it's [component][easy-src] example implementing this idea.
 
 This is somewhat tedious way to customize toasts and best suited for case by case scenarios.
 
 
 [simple]: https://dmi3y.github.io/retoaster/simple.html
 [simple-src]: simple-src.js
-[lazy]: https://dmi3y.github.io/retoaster/lazy.html
-[lazy-src]: lazy-src.js
+[easy]: https://dmi3y.github.io/retoaster/easy.html
+[easy-src]: easy-src.js

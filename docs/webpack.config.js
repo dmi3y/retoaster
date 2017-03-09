@@ -1,7 +1,7 @@
 var config = {
   entry: {
     simple: './simple-src.js',
-    lazy: './lazy-src.js'
+    easy: './easy-src.js'
   },
   output: {
     filename: './[name]-dist.js'
