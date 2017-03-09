@@ -78,7 +78,7 @@ One way to customize appearance of the toasts is to override default properties 
         timeout: false // this success toast would not be automatically hidden
     },
     {
-        id: 2",
+        id: 2,
         message: "Had a very shiny nose",
         type: "note",
         timeout: 5000, // this note toast will close itself after 5s,
