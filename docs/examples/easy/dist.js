@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 191);
+/******/ 	return __webpack_require__(__webpack_require__.s = 195);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -11627,7 +11627,7 @@ module.exports = __webpack_require__(38);
   var Warn = React__default.createElement('svg', { xmlns: 'http://www.w3.org/2000/svg', xmlnsXlink: 'http://www.w3.org/1999/xlink', version: '1.1', width: '24', height: '24', viewBox: '0 0 24 24' }, React__default.createElement('path', { fill: '#ffffff', d: 'M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16' }));
   var Close = React__default.createElement('svg', { xmlns: 'http://www.w3.org/2000/svg', xmlnsXlink: 'http://www.w3.org/1999/xlink', version: '1.1', width: '24', height: '24', viewBox: '0 0 24 24' }, React__default.createElement('path', { fill: '#000000', d: 'M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' }));
 
-  var metaToasts = {
+  var defaultMetaToasts = {
     success: {
       header: 'Success',
       icon: Check,
@@ -11651,10 +11651,20 @@ module.exports = __webpack_require__(38);
     }
   };
 
-  var supplement = function supplement(target, donor) {
+  var supplement = function supplement() {
+    var target = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var donor = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var origin = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
     for (var key in donor) {
-      if (donor.hasOwnProperty(key) && !target.hasOwnProperty(key)) {
-        target[key] = donor[key];
+      if (donor.hasOwnProperty(key)) {
+        if (!target.hasOwnProperty(key)) {
+          target[key] = donor[key];
+        } else if (target.hasOwnProperty(key) && target[key] === true) {
+          if (origin.hasOwnProperty(key)) {
+            target[key] = origin[key];
+          }
+        }
       }
     }
     return target;
@@ -11669,13 +11679,26 @@ module.exports = __webpack_require__(38);
     }
 
     createClass(ReToaster, [{
+      key: 'componentWillMount',
+      value: function componentWillMount() {
+        var metaToasts = supplement(this.props.metaToasts, defaultMetaToasts);
+        for (var toastKey in metaToasts) {
+          if (metaToasts.hasOwnProperty(toastKey)) {
+            var targetToast = metaToasts[toastKey];
+            var donorToast = defaultMetaToasts[toastKey];
+            metaToasts[toastKey] = supplement(targetToast, donorToast);
+          }
+        }
+        this.setState({ metaToasts: metaToasts });
+      }
+    }, {
       key: 'render',
       value: function render() {
         var _this2 = this;
 
         var Toasts = this.props.toasts.map(function (toast) {
-          var metaToast = metaToasts[toast.type] || {};
-          var readyToast = supplement(toast, metaToast);
+          var metaToast = _this2.state.metaToasts[toast.type];
+          var readyToast = supplement(toast, metaToast, defaultMetaToasts[toast.type]);
           return React__default.createElement(ReToast, {
             toast: readyToast,
             removeToast: _this2.props.removeToast,
@@ -11696,7 +11719,8 @@ module.exports = __webpack_require__(38);
 
   ReToaster$1.propTypes = {
     toasts: React.PropTypes.array.isRequired,
-    removeToast: React.PropTypes.func.isRequired
+    removeToast: React.PropTypes.func.isRequired,
+    metaToasts: React.PropTypes.object
   };
 
   __$styleInject(".re-toaster {\n  position: fixed;\n  overflow: hidden;\n  top:0;\n  right: 0;\n  padding: 10px;\n  z-index: 1000\n}\n.re-toaster__close {\n  float: right;\n  cursor: pointer\n}\n.re-toaster__toast {\n  margin: 5px;\n  border: 1px solid #cecece;\n  border-radius: 5px;\n  width: 400px;\n  overflow: hidden\n}\n.re-toaster__toast-base {\n  padding: 10px 15px;\n  margin-left: 75px;\n  background: #f3f3f3;\n  min-height: 55px\n}\n.re-toaster__toast-success {\n  background: #5cb85c\n}\n.re-toaster__toast-note {\n  background: #337ab7\n}\n.re-toaster__toast-warn {\n  background: #f0ad4e\n}\n.re-toaster__toast-error {\n  background: #d9534f\n}\n.re-toaster__icon {\n  float: left;\n  text-align: center;\n  width: 75px;\n  padding-top: 25px\n}\n.re-toaster__header {\n  text-transform: uppercase;\n  font-size: 1.2em;\n  margin-bottom: 15px\n}\n.re-toaster__header-success {\n  color: #5cb85c\n}\n.re-toaster__header-note {\n  color: #337ab7\n}\n.re-toaster__header-warn {\n  color: #f0ad4e\n}\n.re-toaster__header-error {\n  color: #d9534f\n}\n", undefined);
@@ -24124,7 +24148,11 @@ module.exports = flattenChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 191 */
+/* 191 */,
+/* 192 */,
+/* 193 */,
+/* 194 */,
+/* 195 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -24210,13 +24238,15 @@ const errorToast = {
   closeIcon: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CustomCloseIcon, null)
 };
 
-class EasyExample extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+class Example extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
   constructor() {
     super();
 
     this.removeToast = this.removeToast.bind(this);
     this.batchToasts = this.batchToasts.bind(this);
     this.proxyBatch = this.proxyBatch.bind(this);
+    this.hasToastInState = this.hasToastInState.bind(this);
+    this.showToast = this.showToast.bind(this);
     this.state = {
       toasts: []
     };
@@ -24242,12 +24272,39 @@ class EasyExample extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Componen
   proxyBatch() {
     this.batchToasts();
   }
+  showToast(e) {
+    const type = e.target.dataset.type;
+    let toast;
+    switch (type) {
+      case 'success':
+        toast = successToast;
+        break;
+      case 'note':
+        toast = noteToast;
+        break;
+      case 'warn':
+        toast = warnToast;
+        break;
+      case 'error':
+        toast = errorToast;
+        break;
+      default:
+        toast = successToast;
+        break;
+    }
+
+    this.setState({
+      toasts: [toast].concat(this.state.toasts)
+    });
+  }
+  hasToastInState(type) {
+    return this.state.toasts.some(toast => toast.type === type);
+  }
   removeToast(toast) {
     const toasts = this.state.toasts.filter(itoast => itoast !== toast);
     this.setState({ toasts });
   }
   render() {
-    const hasNoToasts = this.state.toasts && !this.state.toasts.length;
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       null,
@@ -24260,18 +24317,38 @@ class EasyExample extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Componen
         toasts: this.state.toasts,
         removeToast: this.removeToast
       }),
-      hasNoToasts && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'h4',
+        null,
+        'Show me...'
+      ),
+      !this.hasToastInState('success') && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'button',
-        { onClick: this.proxyBatch },
-        'Batch again'
+        { 'data-type': 'success', onClick: this.showToast },
+        'Success Toast'
+      ),
+      !this.hasToastInState('note') && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'button',
+        { 'data-type': 'note', onClick: this.showToast },
+        'Note Toast'
+      ),
+      !this.hasToastInState('warn') && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'button',
+        { 'data-type': 'warn', onClick: this.showToast },
+        'Warn Toast'
+      ),
+      !this.hasToastInState('error') && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'button',
+        { 'data-type': 'error', onClick: this.showToast },
+        'Error Toast'
       )
     );
   }
 }
-/* harmony export (immutable) */ __webpack_exports__["EasyExample"] = EasyExample;
+/* harmony export (immutable) */ __webpack_exports__["Example"] = Example;
 
 
-__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(EasyExample, null), document.getElementById('root'));
+__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Example, null), document.getElementById('root'));
 
 /***/ })
 /******/ ]);

@@ -26,13 +26,15 @@ const errorToast = {
   type: 'error'
 }
 
-export class SimpleExample extends React.Component {
+export class Example extends React.Component {
   constructor () {
     super()
 
     this.removeToast = this.removeToast.bind(this)
     this.batchToasts = this.batchToasts.bind(this)
     this.proxyBatch = this.proxyBatch.bind(this)
+    this.showToast = this.showToast.bind(this)
+    this.hasToastInState = this.hasToastInState.bind(this)
     this.state = {
       toasts: [
       ]
@@ -61,6 +63,34 @@ export class SimpleExample extends React.Component {
       }, 100)
     }
   }
+  showToast (e) {
+    const type = e.target.dataset.type
+    let toast
+    switch (type) {
+      case 'success':
+        toast = successToast
+        break
+      case 'note':
+        toast = noteToast
+        break
+      case 'warn':
+        toast = warnToast
+        break
+      case 'error':
+        toast = errorToast
+        break
+      default:
+        toast = successToast
+        break
+    }
+
+    this.setState({
+      toasts: [toast].concat(this.state.toasts)
+    })
+  }
+  hasToastInState (type) {
+    return this.state.toasts.some(toast => toast.type === type)
+  }
   proxyBatch () {
     this.batchToasts()
   }
@@ -69,16 +99,19 @@ export class SimpleExample extends React.Component {
     this.setState({toasts})
   }
   render () {
-    const hasNoToasts = this.state.toasts && !this.state.toasts.length
     return <div>
       <h1>Simple Example</h1>
       <Retoaster
         toasts={this.state.toasts}
         removeToast={this.removeToast}
       />
-      {hasNoToasts && <button onClick={this.proxyBatch}>Batch again</button>}
+      <h4>Show me...</h4>
+      {!this.hasToastInState('success') && <button data-type='success' onClick={this.showToast}>Success Toast</button>}
+      {!this.hasToastInState('note') && <button data-type='note' onClick={this.showToast}>Note Toast</button>}
+      {!this.hasToastInState('warn') && <button data-type='warn' onClick={this.showToast}>Warn Toast</button>}
+      {!this.hasToastInState('error') && <button data-type='error' onClick={this.showToast}>Error Toast</button>}
     </div>
   }
 }
 
-ReactDOM.render(<SimpleExample />, document.getElementById('root'))
+ReactDOM.render(<Example />, document.getElementById('root'))

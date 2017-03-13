@@ -1,10 +1,12 @@
 var config = {
   entry: {
-    simple: './simple-src.js',
-    easy: './easy-src.js'
+    simple: './examples/simple/src.js',
+    easy: './examples/easy/src.js',
+    nice: './examples/nice/src.js',
+    startrek: './examples/startrek/src.js'
   },
   output: {
-    filename: './[name]-dist.js'
+    filename: './examples/[name]/dist.js'
   },
   module: {
     loaders: [

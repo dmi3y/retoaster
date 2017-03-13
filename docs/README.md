@@ -63,7 +63,7 @@ removeToast () => (toast) => {
 ...
 ```
 
-The one possible example of working component with simple ReToaster usage represented by [`docs/simple-src.js`][simple-src].
+The one possible example of working component with simple ReToaster usage represented by simple React [component][simple-src].
 
 ## Easy
 
@@ -99,11 +99,14 @@ One way to customize appearance of the toasts is to override default properties 
 ]
 ```
 There is [working][easy] demo and it's [component][easy-src] example implementing this idea.
-
 This is somewhat tedious way to customize toasts and best suited for case by case scenarios.
 
+## Nice
 
-[simple]: https://dmi3y.github.io/retoaster/simple.html
+
+
+
+[simple]: https://dmi3y.github.io/retoaster/examples/simple/index.html
 [simple-src]: simple-src.js
-[easy]: https://dmi3y.github.io/retoaster/easy.html
+[easy]: https://dmi3y.github.io/retoaster/examples/easy/index.html
 [easy-src]: easy-src.js

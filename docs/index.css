@@ -1,15 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+
 body {
   margin: 0;
   padding: 0;
+  font-size: 18px;
+  font-family: 'Playfair Display', serif;
+  color: #555;
 }
 
 .wrap {
   width: 90%;
   margin: 0 auto;
+  position: relative;
 }
 
-h1 {
+a {
+  color: #108410;
+}
+
+h1,
+h4 {
   color: #108410;
   font-family: monospace;
   font-weight: 300;
+}
+
+button {
+  border: none;
+  font-size: 15px;
+  font-family: 'Playfair Display', serif;
+  margin: 0 5px;
+  color: #fff;
+}
+
+button[data-type="success"] {
+  background: #108410;
+}
+
+button[data-type="note"] {
+  background: #337ab7;
+}
+
+button[data-type="warn"] {
+  background: #f0ad4e;
+}
+
+button[data-type="error"] {
+  background: #d9534f;
 }
