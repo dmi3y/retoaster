@@ -15,17 +15,19 @@
 @keyframes slideInFromTop {
   from {
     transform: translate(0, -5000px);
+    max-height: 0;
   }
 
   to {
     transform: translate(0, 0);
+    max-height: 500px;
   }
 }
 
 @keyframes slideOutToRightAndShrink {
   from {
     transform: translate(0, 0);
-    max-height: 5000px;
+    max-height: 3000px;
     opacity: 1;
   }
 
