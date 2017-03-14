@@ -1,6 +1,6 @@
 {
   "name": "retoaster",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Toasting toasts with Retoaster.",
   "main": "./dist/index.js",
   "standard": {
@@ -23,7 +23,7 @@
     "toaster",
     "toast",
     "notification",
-    "react-component"
+    "react-component",
     "component",
     "message",
     "popup",
