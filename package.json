@@ -1,6 +1,6 @@
 {
   "name": "retoaster",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Toasting toasts with Retoaster.",
   "main": "./dist/index.js",
   "standard": {
@@ -15,7 +15,6 @@
     "compile": "time npm run compile-script & npm run compile-style & wait",
     "compile-dev": "time sh -c 'npm run compile-script && ./tasks/sync-docs-module.sh'",
     "develop": "sane 'npm run compile-dev' ./src"
-
   },
   "keywords": [
     "react",
