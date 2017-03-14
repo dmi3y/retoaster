@@ -2,7 +2,7 @@
 
 ## Simple
 
-The [simple][simple] way to use ReToaster as follows:
+The [simple][simple] way to use Retoaster as follows:
 
 
 ```jsx

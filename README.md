@@ -1,8 +1,8 @@
-# ReToaster
+# Retoaster
 
-> ReactJs Toast Notifications Toaster
+> ReactJS Toast Notifications Toaster
 
-ReactJs component to render flyout notifications aka toasts.
+ReactJS component to render flyout notifications aka toasts.
 
 The peer dependencies are `react` and `react-addons-css-transition-group` for handling CSS animation.
 
