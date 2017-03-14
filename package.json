@@ -17,6 +17,18 @@
     "develop": "sane 'npm run compile-dev' ./src"
 
   },
+  "keywords": [
+    "react",
+    "react.js",
+    "toaster",
+    "toast",
+    "notification",
+    "react-component"
+    "component",
+    "message",
+    "popup",
+    "flyout"
+  ],
   "author": "Dmitrii Lapshukov <lapshukov@gmail.com>",
   "license": "ISC",
   "peerDependencies": {
